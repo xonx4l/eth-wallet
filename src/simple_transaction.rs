@@ -38,7 +38,7 @@ async fn main() -> Result<()> {
     let receipt = provider 
          .send_transaction(tx,None)
          .await?
-         .long_msg("Pending transfer")
+         .log_msg("Pending transfer")
          .confirmation(1)
          .await?
          .context("Missing receipt")?;
