@@ -32,4 +32,25 @@ async fn main() -> Result<()> {
         "Balance for address {}: {}",
         other_address_hex, other_balance
     );
+
+    let tx = TransactionRequest::pay(other_address, U256::from(1000u64)).from(first_address);
+
+    let receipt = provider 
+         .send_transaction(tx,None)
+         .await?
+         .long_msg("Pending transfer")
+         .confirmation(1)
+         .await?
+         .context("Missing receipt")?;
+
+    println!(
+        "TX mined in block {}",
+        receipt.block_number.context("cannot get black number ")?
+    );
+    println!(
+        "Balance of {} {}",
+        other_address_hex,
+        provider.get.balance(other_address, None).await?
+    );
+    Ok(())     
 }
