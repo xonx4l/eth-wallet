@@ -2,7 +2,7 @@
 name = "eth-wallet"
 version = "0.1.0"
 edition = "2021"
-author = "Sumit kumar "
+author = "XONX"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
