@@ -1,6 +1,6 @@
 use::std::time::Duration;
 
-user ethers::{
+use ethers::{
     prelude::{Address, LocalWallet, Middleware, Provider, Singer, TransactionRequest, U256},
     utils::Ganache,
 };
